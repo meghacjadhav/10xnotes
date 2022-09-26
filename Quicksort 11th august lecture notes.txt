@@ -1,0 +1,61 @@
+//Steps of quicksort algorithm
+//1. Choose any element as pivot element.
+//2. Use two pointer approach to put pivot element into its right position such that all left element from pivot
+//element will be smaller and all right element from pivot element will be greater.
+//    a) Initialize two pointers left and right.left will be starting index and right will be end index.
+//    b) Move left pointer until element value at left index is either smaller or equal than pivot element.
+//    c) Move right pointer until element value at right index is greater than pivot element.
+//    d) if both left and right pointers crossed each other then right position of pivot element will be at idx 'right'.So,
+//    swap pivot element with the element at 'right' index.Otherwise swap values at left and right indices and repeat
+//    the process brom #2b until both pointer will cross.
+//3. Call quicksort recursive for two subarrays created i.e.
+//    a) left subarray of pivot element
+//    b) right subarray of pivot element. 
+
+
+//Problem
+//You have given an array of size N.and you have to find K largest element from that array.
+//    Input
+
+N = 8
+let arr = [10, 90, 40, 50, 30, 25, 43, 39]
+K = 4.
+function findKMaxElement(arr, start, end) {
+    let left = start;
+    let right = end;
+    let pivotIdx = start;
+
+    while (true) {
+        while (left <= end && arr[pivotIdx] >= arr[left]) {
+            left++;
+        }
+        while (arr[pivotIdx] < arr[right]) {
+            right--;
+        }
+        
+        if (left > right) {
+            let temp = arr[right];
+            arr[right] = arr[pivotIdx];
+            arr[pivotIdx] = temp;
+            break;
+        } else {
+            let temp = arr[left];
+            arr[left] = arr[right];
+            arr[right] = temp;
+        }
+    }
+
+    //pivot element is at rightIndex
+    if (N - K > right) {
+        findKMaxElement(arr, right + 1, end);
+    } else if (N - K < right) {
+        findKMaxElement(arr, start, right - 1);
+    }
+}
+
+console.log(arr);
+findKMaxElement(arr, 0, arr.length - 1);
+for (let i = N - K; i < arr.length; i++) {
+    console.log(arr[i])
+}
+console.log(arr);

@@ -1,0 +1,42 @@
+1. Take input --> readLine()
+2. Process input
+3. Show output --> console.log
+    - We already know how to show output
+    - console.log
+
+Problem statement: Take a name as input and print a greeting.
+Input format:
+    One line containing a string
+Output format:
+    One line containing the greeting
+Sample test cases (examples):
+Test case 1:
+    Sample input:
+        Ravi
+    Expected output:
+        Welcome Ravi
+Test case 2:
+    Sample input:
+        Sailesh
+    Expected output:
+        Welcome Sailesh
+
+Storage
+    - Information is stored using variables
+    - In Javascript, we declare variables using `let`
+    - e.g.
+        let name = "Ravi";
+        let name = readLine();
+        let x = "Sailesh";
+        let userName = "Samir";
+
+Summary
+- Take input - readLine()
+- Variables
+    - Declare a variable - using let
+    - Store a value in a variable - using =
+- Output - console.log()
+- Run a js program with input
+    - node <your-program> < <input-file>
+    - e.g. node print-name.js < input.txt
+- Combine two strings - using +

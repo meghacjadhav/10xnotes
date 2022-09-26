@@ -1,0 +1,54 @@
+Steps in solving a problem:
+1. Understanding the problem
+2. Coming up with new test cases
+3. Coming up with an algorithm (or logic)
+4. Convert the algorithm into code
+5. Dry run
+6. Run the code on the test cases
+
+Problem statement: Given two integers, compute the sum of the integers.
+Input format: Two lines, containing one integer each.
+Output format: One line, containing one integer.
+Sample test cases:
+Test case 1:
+    Sample input:
+        5
+        13
+    Expected output:
+        18
+New test cases:
+Test case 2:
+    Sample input:
+        54
+        21
+    Expected output:
+        75
+Test case 3:
+    Sample input:
+        23
+        -6
+    Expected output:
+        17
+Test case 4:
+    Sample input:
+        -5
+        -224
+    Expected output:
+        -229
+
+Algorithm:
+1. Read the first number and store it in a variable (say num1)
+2. Read the second number and store it in a variable (say num2)
+3. Calculate the sum of num1 and num2 and store it in a variable (say sum)
+4. Print the sum as output
+
+Data types
+- integers
+    e.g. 5, 23, 0, -4 etc.
+- strings 
+    e.g. "Hello", "Sailesh", "bjkda  njw ", "5" etc.
+- float
+    e.g. 2.3, -5.6, 0.0 etc.
+- Boolean
+    True
+    False

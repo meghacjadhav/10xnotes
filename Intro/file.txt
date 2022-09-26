@@ -1,0 +1,15 @@
+front end                            Backend/server programming    Database/filesystem
+HTML/CSS                                Nodejs                        MySQL/MongoDB
+Javascript                              Python                          Oracle, MSSQL 
+----                                    Java
+React.js/ Angular/Vue
+
+
+-------
+SIngle thread --- One task at a time
+// console.log("I am one ");
+// Settimeout(() =>{
+    console.log("I am in time out");
+}, 200);
+
+// console.log("I am 2");

@@ -1,0 +1,125 @@
+//QuickSort
+//1. It is a divide and conquer algorithm
+//2. Select element is called as pivot element.and in each iteration pivot element will be given it's correct position
+//and same process will repeate on remaining subarrays.
+//3. WorstCaseTC = O(n2), AverageCase: O(NlogN), BestCase: O(NlogN)
+//(Worst case complexity will be when array is sorted or reverse sorted)
+//4. Worst case SpaceComplexity : O(logN), average case: logN, BestCase: O(1)
+
+//let arr = [100, 45, 34, 32]
+//Recursive approach
+//function quicksort(arr, start, end) {
+
+//    if (start > end) {
+//        return;
+//    }
+
+//    let pivotIdx = start;
+//    let left = start;
+//    let right = end;
+
+//    while (true) {
+//        while (left <= end && arr[left] <= arr[pivotIdx]) {
+//            left++;
+//        }
+//        while (arr[right] > arr[pivotIdx]) {
+//            right--;
+//        }
+
+//        if (left < right) {
+//            let temp = arr[left];
+//            arr[left] = arr[right];
+//            arr[right] = temp;
+//        } else {
+//            let temp = arr[right];
+//            arr[right] = arr[pivotIdx];
+//            arr[pivotIdx] = temp;
+//            break;
+//        }
+//    }
+//    //sort the left subarray
+//    quicksort(arr, start, right - 1);
+//    //sort the right subarray
+//    quicksort(arr, right + 1, end);
+//}
+
+
+
+
+//Iterative approach
+function quicksort(arr) {
+    let startArray = [];
+    let endArray = [];
+    startArray.push(0)
+    endArray.push(arr.length - 1);
+
+    while (startArray.length != 0) {
+        let pivotIdx = startArray[startArray.length - 1];
+        let left = startArray[startArray.length - 1];
+        let right = endArray[endArray.length - 1];
+        let start = startArray[startArray.length - 1];
+        let end = endArray[endArray.length - 1];
+        startArray.pop();
+        endArray.pop();
+
+
+        if (start > end) {
+            continue;
+        }
+
+        while (true) {
+            while (left <= end && arr[left] <= arr[pivotIdx]) {
+                left++;
+            }
+            while (arr[right] > arr[pivotIdx]) {
+                right--;
+            }
+
+            if (left < right) {
+                let temp = arr[left];
+                arr[left] = arr[right];
+                arr[right] = temp;
+            } else {
+                let temp = arr[right];
+                arr[right] = arr[pivotIdx];
+                arr[pivotIdx] = temp;
+                break;
+            }
+        }
+        //push index of right subarray
+        startArray.push(right + 1)
+        endArray.push(end)
+
+        //push index of left subarray
+        startArray.push(start)
+        endArray.push(right -1)
+    }
+}
+
+let arr = [7, 5, 9, 8, 1, 4, 6, 15]
+console.log(arr)
+quicksort(arr, 0, arr.length - 1);
+console.log(arr)
+
+
+
+Best case
+Array is sorted
+[1, 2, 3, 4, 5, 6]
+Space complexity O(N)
+
+
+Worst case
+S(N) = 1 + S(N / 2)
+     = 1 + 1 + S(N / 4)
+     = 2 + S(n / 2 ^ 2)
+
+
+     = K + S(N / 2 ^ k)
+
+N / 2 ^ k = 1
+K = log N
+
+S(N) = K + S(1)
+    = log N + 1;
+    = log N

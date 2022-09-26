@@ -1,0 +1,85 @@
+//filter, find, every, map
+
+//filter ->
+let a = { name: "sohan", marks: 90 }
+a.name = "Sohan"
+a.marks = 90
+a.rollNUmber = 7
+
+console.log(a);
+
+
+//You are given studnet names and their marks in same array, you have to print the list of students whose marks > 90.
+
+let name = ["sohan", "rohan", "aashish", "chirag", "harsh"]
+let marks = [50, 60, 95, 85, 92]
+
+
+name[i] -> marks[i]
+
+let nameAndMarks = [{ name: "sohan", marks: 50 }, { name: "rohan", marks: 60 }, { name: "aashish", marks: 95 },
+{ name: "chirag", marks: 85 }, { name: "harsh", marks: 92 }]
+
+let scholarStudents = []
+for (let i = 0; i < nameAndMarks.length; ++i) {
+
+    //nameAndMarks[i].name -> it will give name
+    //nameAndMarks[i].marks -> it will give marks
+
+    if (nameAndMarks[i].marks > 90) {
+        scholarStudents.push(nameAndMarks[i].name)
+    }
+}
+console.log(scholarStudents)
+
+//filter
+//Syntax
+//<arr_name>.filter(predicate)
+//predicate -> f * n / statements / condition -> this should return true / false
+//Output -> It is an new array of the elements for which the above predicate will return true
+
+function isStudentScholar(nameAndMark) {
+    if (nameAndMark.marks > 90) {
+        return true;
+    }
+    return false;
+}
+
+console.log(nameAndMarks.filter(x => isStudentScholar(x)))
+console.log(nameAndMarks)
+
+
+let array2 = nameAndMarks.filter(nameAndMark => isStudentScholar(nameAndMark))
+array2.forEach(nameAndMark => console.log(nameAndMark.name))
+
+//Chaining of functions
+nameAndMarks.filter(nameAndMark => isStudentScholar(nameAndMark))
+    .forEach(nameAndMark => console.log(nameAndMark.name))
+
+//O(N) + O(N) = O(N)
+
+//folloiwng code statement will not work as output of forEach is undefined and we can't call filter f*n of undefined.
+//nameAndMarks.forEach(nameAndMark => console.log(nameAndMark.name)).filter(nameAndMark => isStudentScholar(nameAndMark))
+
+//4 find()
+//Syntax
+//<arr_name>.find(predicate)
+//predicate -> f * n / statements / condition -> this should return true / false
+//Output -> It is an first element for which the above predicate will return true
+
+
+let nameAndMarks = [{ name: "sohan", marks: 50 }, { name: "rohan", marks: 60 }, { name: "aashish", marks: 95 },
+{ name: "chirag", marks: 85 }, { name: "harsh", marks: 92 }]
+
+console.log(nameAndMarks.find(nameAndMark => isStudentScholar(nameAndMark)).dfasdfafdasdfa);
+
+
+some -> BestCase(O(1)), worstCase(O(n))
+forEach -> BestCase(O(n)), worstCase(O(n))
+filter -> BestCase(O(n)), worstCase(O(n))
+find -> BestCase(O(1)), worstCase(O(n))
+
+nameAndMarks.find(nameAndMark => nameAndMark.marks > 90).name
+
+//array is an object, but no all objects are array.
+

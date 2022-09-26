@@ -1,0 +1,81 @@
+let student1Marks = 80
+let student2Marks = 100
+let student3Marks = 120
+
+//Array -> Array is an DataStructure which store data / elements in contiuous form in memory.
+
+//1. What is an array
+//2. Crating an array, getting any particular element in an array, updating element of array
+//3. Iterating over the array, updating / printing specific elements in an array
+//4. Length property and push function of arrya
+//5. differecne between pre - increment and post increment operators
+
+
+//3 methods
+let arr1 = [1, 2, 3]
+
+let arr2 = [];
+arr2.push(1)
+arr2.push(2)
+arr2.push(3)
+
+let arr3 = new Array(10);
+arr3.push(1)
+
+console.log(arr1.length)
+console.log(arr2.length)
+console.log(arr3)
+console.log(arr3.length)
+
+
+console.log(studentMarks)
+
+To get / print single element from an array
+    < arr_name > [<index_no.>]
+    Eg. arr[0], arr[1]
+
+To update the elment in an array
+    <arr_name>[<index_no.>] = <updated_value>
+    Eg. arr[2] = 80
+
+
+let studentMarks = [80, 90, 85, 75, 70];
+
+for (let i = 0; i < studentMarks.length ; {
+    console.log(studentMarks[i])
+}
+
+for (let i = 0; i < studentMarks.length; {
+    studentMarks[i] = studentMarks[i] + 5;
+    console.log(studentMarks[i])
+}
+console.log(studentMarks)
+
+let a = 5;
+console.log(++a);
+
+let b = 5
+console.log(b++);
+console.log(b)
+console.log(a)
+
+for (let i = 0; i < studentMarks.length ; {
+    console.log(studentMarks[i])
+}
+
+
+let arr = [1, 2, 3, 4, 100, 40, "some test string"]
+console.log(arr)
+
+
+let studentMarks = [80, 82, 45, 82, 70];
+
+let maximumMarks = 0;
+
+for (let i = 0; i < studentMarks.length; {
+    if (studentMarks[i] > maximumMarks) {
+                maximumMarks = studentMarks[i];
+    }
+}
+console.log(maximumMarks)
+

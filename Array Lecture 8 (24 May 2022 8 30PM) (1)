@@ -1,0 +1,148 @@
+//Problem
+//you are given a matrix which is sorted row wise and column wise.Matrix element contains only 0's and 1's.You have
+//to find the first column number which contains 1. And if there are multiple rows in that first column than print
+//the row number which have minimum value.
+//Output: will be row number and column number
+
+
+[
+    [0, 0, 0, 0, 0]
+    [0, 0, 0, 0, 0]
+    [0, 0, 1, 1, 1]
+    [0, 0, 1, 1, 1]
+]
+
+//row number = 3
+//column number = 3
+
+
+//[
+//    [0, 0, 0, 0, 0]
+//    [0, 0, 0, 1, 1]
+//    [0, 0, 1, 1, 1]
+//    [0, 0, 1, 1, 1]
+//]
+
+
+
+//Brute force Algo Steps
+//1. Iterate over matrix column by column
+//2. if find 1 than return print row and column.
+//3. while iterating if not found than print "no 1 is there in matrix"
+
+let matrix = [
+    [0, 0, 0, 0, 0],
+    [0, 0, 0, 1, 1],
+    [0, 0, 0, 1, 1],
+    [0, 0, 0, 1, 1]
+]
+//j= 0 -> 3
+//i = 0 -> 4
+
+
+
+//matrix.length = 4
+//matrix[0].lenght = 5;
+
+
+
+function printRowAndColumnof1(matrix) {
+    for (let i = 0; i < matrix[0].length; ++i) {
+        for (let j = 0; j < matrix.length; ++j) {
+            //console.log(i, j);
+
+            if (matrix[j][i] == 1) {
+                console.log(j, i);
+                break;
+            }
+        }
+    }
+    console.log("There are no 1's in matrix")
+}
+
+
+printRowAndColumnof1(matrix)
+
+//matrix[0][0] -> matrix[1][0] -> matrix[2][0] -> matrix[3][0] -> matrix[0][1]
+
+
+
+//algorithm steps
+//1. Start from rightmost bottom corner.If it is zero than no 1 is present.
+//2. if it is 1 than start iterating from right to left until you find last 1.
+//3. start iteration from bottom to top until you find last 1
+//4. return i and j if it is last 1.
+
+
+//There are M rows and N columns.  time complexity = O(N+M)
+
+//rightMostCorner = matrix[matrix.length - 1][matrix[matrix.length - 1].length - 1]
+
+
+
+let matrix = [
+    [0, 0, 0, 0, 0],
+    [0, 0, 0, 1, 1],
+    [0, 0, 1, 1, 1],
+    [0, 0, 1, 1, 1]
+]
+
+function getFirst1(matrix) {
+    rowNumber = matrix.length - 1
+    columnNumber = matrix[0].length - 1
+    if (matrix[rowNumber][columnNumber] == 0) {
+        console.log("there is no 1");
+        return;
+    }
+
+    for (; ;) {
+        if (matrix[rowNumber][columnNumber - 1] == 1) {
+            --columnNumber
+        } else if (matrix[rowNumber - 1][columnNumber] == 1) {
+            --rowNumber;
+        } else {
+            console.log(rowNumber, columnNumber);
+            return;
+        }
+    }
+
+}
+
+function getFirst1secondVersion(matrix) {
+    rowNumber = matrix.length - 1
+    columnNumber = matrix[0].length - 1
+    if (matrix[rowNumber][columnNumber] == 0) {
+        console.log("there is no 1");
+        return;
+    }
+
+    for (; ;) {
+        if (matrix[rowNumber][columnNumber - 1] == 1) {
+            --columnNumber
+        } else {
+            break;
+        }
+    }
+
+    for (; ;) {
+        if (matrix[rowNumber - 1][columnNumber] == 1) {
+            --rowNumber;
+        } else {
+            console.log(rowNumber, columnNumber);
+            return;
+        }
+    }
+}
+
+getFirst1secondVersion(matrix)
+
+//First column which have 1 will have 1 in the bottomost row.
+
+
+let a = 5;
+let b = --a;
+
+let c = 5;
+let d = c--;
+
+console.log(a, b, c, d)

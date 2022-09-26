@@ -1,0 +1,128 @@
+//QuickSort
+
+//Sorting
+//Arranging a collection of elements into some order(increasing, decreasing, alphatically ordering etc)
+
+
+
+let arr = [1, 5, 9, 8, 7, 4, 6, 15]
+//console.log(arr);
+//arr.sort()
+//console.log(arr);
+
+
+//arr.sort(temp);
+
+//function temp(a, b) {
+//    //if return positive number then 'a' will be considered greater than 'b', if negative than a will be considered as smaller
+//    //number and if 0 both are considered as equal numbers.
+//    return a - b;
+//}
+
+//let arr = [1, 5, 9, 8, 7, 4, 6, 15]
+//           0                    N-1
+//           1                    N-1
+
+//           [1, 5, 9, 8, 7, 4, 6, 15]
+//           [1, 4, 9, 8, 7, 5, 6, 15]
+//           [1, 4, 5, 8, 7, 9, 6, 15]
+//           [1, 4, 5, 7, 8, 9, 6, 15]
+
+//Algorithm
+//1. Get the minimum element and put it into 1st postion.
+//2. Repeate the same step for next indexes.
+
+
+
+//1stIteration -> 0 to N - 1
+//2ndIteration -> 1 to N - 1
+
+//N - 1thIteration -> N - 2 to N - 1
+
+
+SelectionSorting
+console.log(arr)
+console.log(arr.length)
+for (let i = 0; i < arr.length; i++) {
+
+    let minimumElementIdx = i;
+    //arr[minimumElementIdx] => should be minimum;
+
+    let j = i+1;
+    for (; j < arr.length; j++) {
+        console.log(i, j);
+        if(arr[minimumElementIdx] > arr[j]) {
+            minimumElementIdx = j;
+        }
+    }
+    ////element at minimumElementIdx is smaller from index i to N-1.
+    let temp = arr[minimumElementIdx]
+    arr[minimumElementIdx] = arr[i];
+    arr[i] = temp;
+}
+console.log(arr)
+
+
+N - 1 + (N - 2) + (N - 3) + (N - 4) + ... 2 + 1
+
+N(n - 1) / 2 = O(N2), time complexity;
+O(1), space complexity
+
+QuickSort
+1. It is a divide and conquer algorithm
+2. Select element is called as pivot element.and in each iteration pivot element will be given it's correct position
+and same process will repeate on remaining subarrays.
+3. WorstCaseTC = O(n2), AverageCase: O(NlogN), BestCase: O(NlogN)
+(Worst case complexity will be when array is sorted or reverse sorted)
+
+
+
+Approach: we will select one element and put it into its correct position.such that all elements greater than this particular
+    element will come into right of the element and all smaller element will come into left of this elmeent
+
+    [10, 5, 9, 8, 7, 4, 6, 15]
+
+
+5, 9, 8, 7, 4, 6, [10] 15
+4, [5], 9, 8, 7, 6[10] 15
+
+
+
+Case 1(arrays is sorted, reverse sorted)
+arr = [10, 20, 30, 40, 50, 60]
+
+T(n) = O(N) + T(n-1)
+     = N + (N-1) + T(N-2)
+     = N + (N - 1) + (N - 2) + T(N - 3)
+     = N + (N - 1) + (N - 2) + (N - 3) + ... + T(1)
+     = N + (N - 1) + (N - 2) + (N - 3) + ... + 1     (T(1) = 1)
+
+T(n) = N(N+1)/2 = O(n2)
+
+
+Case2
+arr = [40, 20, 10, 30, 60, 50, 70]
+
+arr = [20, 10, 30, 40, 60, 50, 70] (It will take O(N))
+
+T(N) = time complexity of quicksort algorithm for array of size N.
+
+T(N) = N + 2 * T(N/2)
+     = N + 2 * (N / 2 + 2 * T(N / 4))
+     = N + N + 4 T(n / 4)
+     = 2N + 4 * (N / 4 + 2 * T(N / 8))
+     = 2N + N + 8 * T(N / 8)
+     = 3N + 8 * T(N / 8)
+
+     = K * N + 2 ^ K * T(N / (2 ^ k))
+
+
+N / 2 ^ k = 1
+N = 2 ^ k
+k = log N
+
+
+T(n) = K * N + 2 ^ k * T(N / 2 ^ k)
+     = (log N) * N + 1
+     = o(N logN)
+

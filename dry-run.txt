@@ -1,0 +1,36 @@
+Test case
+    5
+    13
+--------------------
+Variables section
+num1 -> 5
+num2 -> 13
+sum -> 18
+---------------------
+Dry run
+L19: let num1 = parseInt(readLine())
+        First evaluate RHS
+        RHS -> parseInt(readLine())
+            -> parseInt("5")
+            -> 5
+        Assign RHS to LHS
+        Assign 5 to num1
+L20: A comment. Skip it.
+L21: let num2 = parseInt(readLine())
+        First evaluate RHS
+        RHS -> parseInt(readLine())
+            -> parseInt("13")
+            -> 13
+        Assign RHS to LHS
+        Assign 13 to num2
+L22: A comment. Skip it.
+L23: let sum = num1 + num2;
+        First evaluate RHS
+        RHS -> num1 + num2
+            -> 5 + 13
+            -> 18
+        Assign RHS to LHS
+        Assign 18 to sum
+L24: console.log(sum)
+        -> console.log(18)
+        -> Print 18 to the output

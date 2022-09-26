@@ -1,0 +1,75 @@
+//Built functions
+
+//    -> function which are already provided by javascript.
+
+//Array built functions
+//find(), some(), map(), forEach(), filter(), every(), reduce()
+
+
+//1. Some()
+//Syntax ->
+//<arr_name>.some(predicate)
+//predicate -> it is a condition/statment which will return true or false.
+//Output -> It will return true if any of the elments matches the criteria of predicate, otherwise false.
+//advantage -> 
+
+////Problem statement ->
+let workersAge = [15, 28, 29, 30, 14, 12, 35]
+
+for (let i = 0; i < workersAge.length; ++i) {
+    if (workersAge[i] < 14) {
+        console.log("workers exist with age less than 14")
+    }
+}
+
+function ageLessthan14(age) {
+    console.log("this number is ", age);
+    return age <= 14;
+}
+function ageLessthan15() {
+    return false;
+}
+console.log(workersAge.some(variable1 => ageLessthan15()))
+
+
+console.log(workersAge.some(variable1 => ageLessthan14(variable1)))
+
+//console.log(workersAge.some(variable1 => variable1 <= 14))
+
+//time complexity -> O(n)
+
+
+//2 forEach()
+//Syntax
+//    <arr_name>.forEach(function/ statement)
+//Output -> it doesn't return any output
+//Use of forEach function -> it will iterate through each element and will exeucted function/statement for that element.
+
+let salaryWorkers = [50000, 30000, 35000]
+
+for (let i = 0; i < salaryWorkers.length; ++i) {
+    console.log(salaryWorkers[i] + 5000)
+}
+
+
+function incrementAndPrintSalary(salary) {
+    console.log(salary + 5000);
+}
+salaryWorkers.forEach(salary => incrementAndPrintSalary(salary))
+
+
+salaryWorkers.forEach(salary => console.log(salary + 5000))
+salaryWorkers.forEach(salary => console.log(salary + 5000))
+
+
+console.log(salaryWorkers.forEach(salary => salary + 5000));
+
+salaryWorkers.forEach(salary => console.log(salary + 5000))
+
+console.log(console.log("fjasdlf"))
+
+function printNumber(someNumber) {
+    console.log(someNumber)
+}
+
+printNumber(5 + 3 - 3)
